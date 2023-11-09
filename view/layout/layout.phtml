@@ -13,6 +13,23 @@ $this->headScript()->prependFile($this->assetUrl('js/global.js', 'Omeka'));
 $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 'Omeka'));
 $primaryColor = $this->themeSetting('primary_color') ?? '#fd9611';
 $secondaryColor = $this->themeSetting('secondary_color') ?? '#5f88b4';
+$backgroundImageId = $this->themeSetting('background_image');
+
+if ($backgroundImageId) {
+    // Use the API to retrieve the asset
+    $api = $this->api();
+    $response = $api->read('assets', $backgroundImageId);
+    $asset = $response->getContent();
+
+    // Get the URL of the asset
+    $backgroundImageUrl = $asset->assetUrl();
+} else {
+    $backgroundImageUrl = '';
+}
+
+$backgroundImage = $backgroundImageUrl ? "url('$backgroundImageUrl')" : 'none';
+$backgroundColor = $this->themeSetting('background_color') ? $this->themeSetting('background_color') : '#FFFFFF';
+
 
 
 $this->trigger('view.layout');
@@ -42,7 +59,14 @@ $pageClass = null;
         <?php echo $primaryColor; ?>
       ;
       --secondary:
-      <?php echo $secondaryColor; ?>;
+        <?php echo $secondaryColor; ?>
+      ;
+      --backgroundImage:
+        <?php echo $backgroundImage; ?>
+      ;
+      --backgroundColor:
+        <?php echo $backgroundColor; ?>
+      ;
     }
   </style>
 
