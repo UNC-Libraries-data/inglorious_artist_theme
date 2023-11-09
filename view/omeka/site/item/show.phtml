@@ -1,4 +1,4 @@
- <?php
+<?php
 // $autorTerm = 'dcterms:creator';
 // $autor = $item->value($autorTerm) instanceof \Omeka\Api\Representation\ValueRepresentation
 //     ? $item->value($autorTerm)->valueResource()->displayTitle()
@@ -10,10 +10,6 @@ $escape = $this->plugin('escapeHtml');
 // $this->headTitle($autor);
 $this->htmlElement('body')->appendAttribute('class', 'item resource show');
 $this->headScript()->appendFile($this->assetUrl('js/galeria.js'));
-$this->headLink()->appendStylesheet($this->assetUrl('css/lightslider.min.css'));
-$this->headLink()->appendStylesheet($this->assetUrl('css/lightgallery.min.css'));
-$this->headScript()->appendFile($this->assetUrl('js/lightslider.min.js'));
-$this->headScript()->appendFile($this->assetUrl('js/lightgallery.min.js'));
 $this->headScript()->appendFile($this->assetUrl('js/lg-zoom.min.js'));
 $this->headScript()->appendFile($this->assetUrl('js/lg-rotate.min.js'));
 $this->headScript()->appendFile($this->assetUrl('js/lg-video.min.js'));
@@ -32,29 +28,56 @@ foreach ($item->media() as $media) {
     }
 }
 ?>
+<style type="text/css" media="screen">
+    :root {
+        --primary:
+            <?php echo $primaryColor; ?>
+        ;
+        --secondary:
+            <?php echo $secondaryColor; ?>
+        ;
+        --backgroundImage:
+            <?php echo $backgroundImage; ?>
+        ;
+        --backgroundColor:
+            <?php echo $backgroundColor; ?>
+        ;
+    }
+</style>
 
 <div class="contenido-ficha">
     <div class="ficha-columna-1">
-        <?php if (count($lightMedia) > 0) : ?>
+        <?php if (count($lightMedia) > 0): ?>
             <ol id="itemfiles" class="media-list">
-                <?php foreach ($lightMedia as $media) : ?>
+                <?php foreach ($lightMedia as $media): ?>
                     <?php $source = ($media->originalUrl()) ? $media->originalUrl() : $media->source(); ?>
-                    <li data-src="<?php echo $source; ?>" data-thumb="<?php echo $escape($media->thumbnailUrl('medium')); ?>" data-download-url="<?php echo $source; ?>" class="media resource" data-tweet-text="<?php echo $site->title(); ?>: «<?php echo $media->displayTitle(); ?>» por <?php echo mb_strimwidth($autor, 0, 120, '[...]'); ?>" title="<?php echo $media->displayTitle(); ?>" alt="<?php echo $media->displayTitle(); ?>">
+                    <li data-src="<?php echo $source; ?>" data-thumb="<?php echo $escape($media->thumbnailUrl('medium')); ?>"
+                        data-download-url="<?php echo $source; ?>" class="media resource"
+                        data-tweet-text="<?php echo $site->title(); ?>: «<?php echo $media->displayTitle(); ?>» por <?php echo mb_strimwidth($autor, 0, 120, '[...]'); ?>"
+                        title="<?php echo $media->displayTitle(); ?>" alt="<?php echo $media->displayTitle(); ?>">
                         <?php echo $media->render(); ?>
-                        <div class="titulo-imagen"><?php echo $media->displayTitle(); ?></div>
+                        <div class="titulo-imagen">
+                            <?php echo $media->displayTitle(); ?>
+                        </div>
                     </li>
                 <?php endforeach; ?>
             </ol>
         <?php endif; ?>
 
 
-        <?php if (count($otherMedia) > 0) : ?>
+        <?php if (count($otherMedia) > 0): ?>
             <div id="other-media" class="property">
                 <div class="values">
-                    <?php foreach ($otherMedia as $media) : ?>
+                    <?php foreach ($otherMedia as $media): ?>
                         <div class="value">
-                            <a href="<?php echo $media->originalUrl(); ?>" title="<?php echo $media->displayTitle(); ?>" alt="<?php echo $media->displayTitle(); ?>"><?php echo $this->thumbnail($media, 'large'); ?></a>
-                            <div class="titulo-media"><a href="<?php echo $media->originalUrl(); ?>"><?php echo $media->displayTitle(); ?><?php echo " (formato " . strtoupper($media->extension()) . ")"; ?></a></div>
+                            <a href="<?php echo $media->originalUrl(); ?>" title="<?php echo $media->displayTitle(); ?>"
+                                alt="<?php echo $media->displayTitle(); ?>">
+                                <?php echo $this->thumbnail($media, 'large'); ?>
+                            </a>
+                            <div class="titulo-media"><a href="<?php echo $media->originalUrl(); ?>">
+                                    <?php echo $media->displayTitle(); ?>
+                                    <?php echo " (formato " . strtoupper($media->extension()) . ")"; ?>
+                                </a></div>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -64,26 +87,47 @@ foreach ($item->media() as $media) {
     </div>
 
     <div class="ficha-columna-2">
-        <!--<p class="titulo-catalogo-ficha"><?php echo ucfirst($item->resourceTemplate()->label()); ?></p> -->
-        <div class="titulo-ficha"><?php echo $this->pageTitle($item->displayTitle()); ?></div>
+        <p class="titulo-catalogo-ficha">
+            <?php echo ucfirst($item->resourceTemplate()->label()); ?>
+        </p>
+        <div class="titulo-ficha">
+            <?php echo $this->pageTitle($item->displayTitle()); ?>
+        </div>
         <?php
         $autoria = $item->value('dcterms:creator', ['all' => true]);
         foreach ($autoria as $value) {
-                echo '<h2 class="autor-ficha">' . $value->asHtml() . '</h2>';
+            echo '<h2 class="autor-ficha">' . $value->asHtml() . '</h2>';
         }
         ?>
         <div class="property">
             <?php echo $item->displayValues(); ?>
         </div>
+        <script>
+            document.querySelectorAll('.property dt').forEach(dt => {
+                // Create a new h4 element
+                let h4 = document.createElement('h4');
+
+                // Copy the contents of the dt into the h4
+                h4.innerHTML = dt.innerHTML;
+
+                // Replace the dt with the h4 in the DOM
+                dt.parentNode.replaceChild(h4, dt);
+            });
+        </script>
+
 
 
         <!--    FIN DE MAPA   -->
 
         <?php $itemSets = $item->itemSets(); ?>
-        <?php if (count($itemSets) > 0) : ?>
-            <h4 class="etiqueta-fichas"><?php echo "Conjuntos de los que forma parte"; ?></h4>
-            <?php foreach ($itemSets as $itemSet) : ?>
-                <div class="value"><a href="<?php echo $escape($itemSet->url()); ?>"><?php echo $itemSet->displayTitle(); ?></a></div>
+        <?php if (count($itemSets) > 0): ?>
+            <h4 class="etiqueta-fichas">
+                <?php echo "Sets"; ?>
+            </h4>
+            <?php foreach ($itemSets as $itemSet): ?>
+                <div class="value"><a href="<?php echo $escape($itemSet->url()); ?>">
+                        <?php echo $itemSet->displayTitle(); ?>
+                    </a></div>
             <?php endforeach; ?>
         <?php endif; ?>
 
