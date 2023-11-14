@@ -23,7 +23,20 @@ if ($activePage):
 
 <?php $this->trigger('view.show.before'); ?>
 
-<?php echo $this->content; ?>
+<?php 
+$pageSlug = $page->slug();
+
+if($pageSlug == "home" || $pageSlug == 'index') {
+    $siteTitle = $this->themeSetting('site_name');
+    $landingText = $this->content;
+    echo $pageURL;
+    echo $this->partial("partials/landing-page-block.phtml", ["title" => $siteTitle, "text" => $landingText]);
+  }
+else{
+    echo $this->content; 
+}
+
+?>
 
 <?php $this->trigger('view.show.after'); ?>
 <?php if ($showPagePagination): ?>
