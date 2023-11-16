@@ -30,13 +30,11 @@ $pageSlug = $page->slug();
 
 if ($pageSlug == "home" || $pageSlug == 'index') {
     $siteTitle = $this->themeSetting('site_name');
-    $landingText = $this->content;
-    echo $pageURL;
+    $landingText = $this->themeSetting('landing_page_text');
     echo $this->partial("partials/landing-page-block.phtml", ["title" => $siteTitle, "text" => $landingText]);
 } else if( $pageSlug == "explore") {
     $siteTitle = "Explore" . $this->themeSetting("site_name");
     $landingText = $this->content;
-    echo $pageURL;
     echo $this->partial("partials/explore-page-block.phtml", ["title" => $siteTitle, "text" => $landingText]);
 } 
 else {
