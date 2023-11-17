@@ -1228,7 +1228,7 @@ body>header ul li {
   display: none
 }
 
-.resource-list, .resource-list-item-set {
+.card-view, .resource-list-item-set {
   margin-top: 50px;
   column-count: initial;
   padding-left: initial;
@@ -1240,14 +1240,14 @@ body>header ul li {
 }
 
 @media only screen and (min-width:56.25em) {
-  .resource-list, .resource-list-item-set {
+.card-view, .resource-list-item-set {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 @media only screen and (max-width:900px) {
-  .resource-list, .resource-list-item-set, .contenido-ficha, .contenido-conjunto, .consultar-catalogo, #advanced-search {
+.card-view, .resource-list-item-set, .contenido-ficha, .contenido-conjunto, .consultar-catalogo, #advanced-search {
     display: block;
     padding: 0 !important;
   }
@@ -2426,4 +2426,25 @@ video {
 
 #cookie-bar .cc-message a:active, #cookie-bar .cc-message a:hover, #cookie-bar .cc-message a:visited {
   text-decoration: underline !important;
+}
+
+/* List View    */
+/* For Card View */
+.card-view li.item {
+                
+  min-width: 200px;
+  min-height: 300px;
+  display: inline-block;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* For List View */
+.list-view li.item {
+  
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  display: block;
+  margin: 0;
+  box-shadow: none;
 }
