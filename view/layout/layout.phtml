@@ -14,6 +14,7 @@ $this->headScript()->prependFile($this->assetUrl('vendor/jquery/jquery.min.js', 
 $primaryColor = $this->themeSetting('primary_color') ?? '#fd9611';
 $secondaryColor = $this->themeSetting('secondary_color') ?? '#5f88b4';
 $backgroundImageId = $this->themeSetting('background_image');
+$disclaimer = $this->themeSetting('disclaimer') ?? 'Here\'s some disclaimer.';
 
 if ($backgroundImageId) {
     // Use the API to retrieve the asset
@@ -168,7 +169,7 @@ $email = $this->themeSetting('email') ?: 'admin@unc.edu';
 
           <div class="uja-footer__logo-uja">
             <a href="https://www.unc.edu/">
-              <img src="<?php echo $footerLogoUrl; ?>" alt="Universidad de Jaén">
+              <img src="<?php echo $footerLogoUrl; ?>" alt="<?php echo $orgName; ?>">
             </a>
           </div>
           <div class="uja-footer__vcard vcard">
@@ -206,9 +207,8 @@ $email = $this->themeSetting('email') ?: 'admin@unc.edu';
           Buzón de quejas y sugerencias|http://administracionelectronica.ujaen.es/node/129
           ";
           $footerLinks = explode("\n", trim($footerLinksRaw));
-
-
           ?>
+        
           <nav aria-labelledby="footer-utilities-menu">
             <ul>
               <?php foreach ($footerLinks as $link):
@@ -222,6 +222,12 @@ $email = $this->themeSetting('email') ?: 'admin@unc.edu';
               <?php endforeach; ?>
             </ul>
           </nav>
+              </br>
+          <div class="disclaimer">
+      <span>
+        <?php echo $disclaimer; ?>
+    </span>
+              </div>
         </div>
       </div>
     </div>
