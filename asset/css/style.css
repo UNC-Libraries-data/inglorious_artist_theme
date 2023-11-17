@@ -8,6 +8,8 @@
 
 #itemfiles {
   padding-left: 0 !important;
+  position: sticky;
+  top: 75px;
 }
 
 body>* {
@@ -1943,7 +1945,6 @@ li ul {
 .conjunto-columna-1 {
   padding-right: 35px;
 }
-
 .ficha-columna-1 img {
   position: relative;
 }
