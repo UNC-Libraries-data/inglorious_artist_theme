@@ -620,7 +620,7 @@ main>div>ul li:before {
   height: 1.06876rem
 }
 
-.site-page-pagination, nav.pagination:nth-child(5) .cero-resultados {
+.site-page-pagination, nav.pagination:nth-child(5) .zero-results {
   display: none
 }
 
