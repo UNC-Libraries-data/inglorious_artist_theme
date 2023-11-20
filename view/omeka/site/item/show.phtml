@@ -84,9 +84,11 @@ foreach ($item->media() as $media) {
         <p class="titulo-catalogo-ficha">
             <?php echo ucfirst($item->resourceTemplate()->label()); ?>
         </p>
+        <!--  Creates item title for the page -->
         <div class="titulo-ficha">
             <?php echo $this->pageTitle($item->displayTitle()); ?>
         </div>
+         <!-- Writes item creator's name underneath item title-->
         <?php
         $autoria = $item->value('dcterms:creator', ['all' => true]);
         foreach ($autoria as $value) {
@@ -97,6 +99,7 @@ foreach ($item->media() as $media) {
             <?php echo $item->displayValues(); ?>
         </div>
         <script>
+            // selects all property titles and sets them as h4 titles
             document.querySelectorAll('.property dt').forEach(dt => {
                 // Create a new h4 element
                 let h4 = document.createElement('h4');
@@ -107,6 +110,49 @@ foreach ($item->media() as $media) {
                 // Replace the dt with the h4 in the DOM
                 dt.parentNode.replaceChild(h4, dt);
             });
+
+            // function to create links -- should be moved to helpers
+            let create_links = (node, tags, tag_links) => {
+                let span = node.firstElementChild
+                span.textContent = '';
+                
+                tag_links.forEach((l,idx) => {
+                    let link = document.createElement('a');
+                    let link_txt = document.createTextNode(tags[idx]);
+                    link.appendChild(link_txt);
+                    link.title = tags[idx];
+                    link.href = l;
+                    span.appendChild(link);
+                    span.appendChild(document.createTextNode(', '));
+                })
+                span.lastChild.remove();
+
+            }
+
+            // fixes the display of the tags
+            document.querySelectorAll('dd.value').forEach(e => {
+                let txt = e.textContent;
+                let feature = e.previousElementSibling.textContent.trim();
+                let tags = []
+                let tag_links = []
+                if (feature === 'Subject') {
+                    txt.split(';').forEach(t => {
+                    tags.push(t.trim())
+                    tag_links.push(`http://localhost:88/s/test/item?property%5B0%5D%5Bjoiner%5D=and&property%5B0%5D%5Bproperty%5D=3&property%5B0%5D%5Btype%5D=in&property%5B0%5D%5Btext%5D=${t.trim()}&submit=Search`)
+                })    
+                create_links(e, tags, tag_links);
+                } else if (feature === 'Tag') {
+                    txt.split(';').forEach(t => {
+                    tags.push(t.trim())
+                    tag_links.push(`http://localhost:88/s/test/item?property%5B0%5D%5Bjoiner%5D=and&property%5B0%5D%5Bproperty%5D=194&property%5B0%5D%5Btype%5D=in&property%5B0%5D%5Btext%5D=${t.trim()}&submit=Search`)
+                })
+                create_links(e, tags, tag_links);
+                }
+
+                
+
+            })
+
         </script>
 
 
