@@ -1173,7 +1173,8 @@ body>header ul li {
 }
 
 .pagination .row-count {
-  display: none
+  padding-right: 0.3em;
+  text-transform: uppercase;
 }
 
 .pagination form {
@@ -1220,9 +1221,9 @@ body>header ul li {
   text-align: left
 }
 
-.browse-controls .pagination .row-count {
+/* .browse-controls .pagination .row-count {
   display: block
-}
+} */
 
 .browse-controls form {
   text-align: left;
@@ -2451,5 +2452,15 @@ video {
 }
 .list-view .item > a {
   width: 200px !important;
-  float: right !important;
+  float: left !important;
+  margin-right: 10px;
+}
+#viewToggle{
+  color: var(--secondary);
+  font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
+}
+.viewToggle {
+  border-left: 2px solid;
+  padding-left: 0.5em;
 }
