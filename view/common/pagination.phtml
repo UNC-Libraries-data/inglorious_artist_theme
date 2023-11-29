@@ -23,6 +23,10 @@ $translate = $this->plugin('translate');
     <?php endif; ?>
     
         <span class="row-count"><?php if ($totalCount > 1): ?><?php echo sprintf('%s results', $totalCount); ?><?php else: ?><?php echo sprintf('%s result', $totalCount); ?><?php endif; ?></span>
+        <!-- Toggle Button for view selection -->
+        <span class="view">
+                <a id="viewToggle" data-view="cards">Switch to List View</a>
+        </span>
 <?php else: ?>
     <?php echo '<div class="zero-results">No results</div>'; ?>
 <?php endif; ?>

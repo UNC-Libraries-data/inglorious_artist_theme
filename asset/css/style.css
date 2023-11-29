@@ -2449,3 +2449,7 @@ video {
   margin: 0;
   box-shadow: none;
 }
+.list-view .item > a {
+  width: 200px !important;
+  float: right !important;
+}
