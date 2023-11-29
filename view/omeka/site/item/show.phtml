@@ -3,11 +3,9 @@ $translate = $this->plugin('translate');
 $escape = $this->plugin('escapeHtml');
 // $this->headTitle($autor);
 $this->htmlElement('body')->appendAttribute('class', 'item resource show');
-$this->headScript()->appendFile($this->assetUrl('js/galeria.js'));
-$this->headScript()->appendFile($this->assetUrl('js/lg-zoom.min.js'));
-$this->headScript()->appendFile($this->assetUrl('js/lg-rotate.min.js'));
-$this->headScript()->appendFile($this->assetUrl('js/lg-video.min.js'));
-$this->headScript()->appendFile($this->assetUrl('js/lg-share.min.js'));
+$this->headScript()->appendFile($this->assetUrl('js/simple-lightbox.min.js'));
+$this->headLink()->appendStylesheet($this->assetUrl('css/simple-lightbox.min.css'));
+
 
 $lightMedia = [];
 $otherMedia = [];
@@ -47,7 +45,7 @@ foreach ($item->media() as $media) {
                     <?php $source = ($media->originalUrl()) ? $media->originalUrl() : $media->source(); ?>
                     <li data-src="<?php echo $source; ?>" data-thumb="<?php echo $escape($media->thumbnailUrl('medium')); ?>"
                         data-download-url="<?php echo $source; ?>" class="media resource"
-                        data-tweet-text="<?php echo $site->title(); ?>: «<?php echo $media->displayTitle(); ?>» por <?php echo mb_strimwidth($autor, 0, 120, '[...]'); ?>"
+                        data-tweet-text="<?php echo $site->title(); ?>: «<?php echo $media->displayTitle(); ?>» por"
                         title="<?php echo $media->displayTitle(); ?>" alt="<?php echo $media->displayTitle(); ?>">
                         <?php echo $media->render(); ?>
                         <div class="titulo-imagen">
@@ -173,3 +171,10 @@ foreach ($item->media() as $media) {
 
     </div>
 </div>
+
+<script>
+new SimpleLightbox('.media-render a', { 
+    nav: false, // Only have 1 image, no need to have -> and -< button. 
+    //Documentation: https://simplelightbox.com/
+ });
+</script>
