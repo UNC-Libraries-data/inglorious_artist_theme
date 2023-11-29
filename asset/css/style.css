@@ -937,6 +937,7 @@ body>header ul li {
     max-width: 100%
   }
   .identidad-uja img {
+    max-width: 300px;
     width: auto
   }
 }

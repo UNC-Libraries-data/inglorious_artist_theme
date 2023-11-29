@@ -51,8 +51,6 @@ $pageClass = null;
   <?php echo $this->headLink(); ?>
   <?php echo $this->headStyle(); ?>
   <?php echo $this->headScript(); ?>
-  <link rel="search" type="application/opensearchdescription+xml"
-    href="https://patrimoniocultural.ujaen.es/opensearch.xml" title="Patrimonio UJA">
 
   <style type="text/css" media="screen">
     :root {
@@ -82,7 +80,7 @@ $pageClass = null;
 
   <?php
   $logoAssetId = $this->themeSetting('logo');
-  $displayedLogoUrl = $this->assetUrl('img/sprite_ujaen.png'); // Default logo
+  $displayedLogoUrl = $this->assetUrl('img/UniversityLibraries_logo_white_h.png'); // Default logo
   
   if ($logoAssetId) {
     $asset = $this->api()->read('assets', $logoAssetId)->getContent();
@@ -152,7 +150,7 @@ $pageClass = null;
 </section>
 <?php
 $footerLogoAssetId = $this->themeSetting('footer_logo');
-$defaultLogo = '/themes/patrimoniouja/asset/img/sprite_ujaen.png';
+$defaultLogo = '/themes/inglorious_artist_theme/asset/img/UniversityLibraries_logo_white_h.png';
 $footerLogoUrl = $footerLogoAssetId ? $this->api()->read('assets', $footerLogoAssetId)->getContent()->assetUrl() : $defaultLogo;
 $orgName = $this->themeSetting('org_name') ?: 'University of North Carolina at Chapel Hill';
 $streetAddress = $this->themeSetting('street_address') ?: 'Some Campus Address';
@@ -200,11 +198,7 @@ $email = $this->themeSetting('email') ?: 'admin@unc.edu';
         <div class="uja-footer__copyright">
           <?php
           $footerLinksRaw = $this->themeSetting('footer_links') ?: "
-          Accesibilidad|/s/catalogo/page/accesibilidad
-          Aviso legal|https://www.ujaen.es/aviso-legal
-          Política de privacidad|https://www.ujaen.es/politica-de-privacidad
-          Política de cookies|https://www.ujaen.es/politica-de-cookies
-          Buzón de quejas y sugerencias|http://administracionelectronica.ujaen.es/node/129
+          Settings need to be configured for this theme. Please contact your site administrator.
           ";
           $footerLinks = explode("\n", trim($footerLinksRaw));
           ?>
