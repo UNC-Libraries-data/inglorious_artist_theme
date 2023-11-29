@@ -174,7 +174,10 @@ foreach ($item->media() as $media) {
 
 <script>
 new SimpleLightbox('.media-render a', { 
-    nav: false, // Only have 1 image, no need to have -> and -< button. 
+    overlayOpacity: 0.9,
+    widthRatio: 1.5,
+    heightRatio: 1,
+    scaleImageToRatio: true,
     //Documentation: https://simplelightbox.com/
  });
 </script>
