@@ -879,7 +879,7 @@ body>header ul li {
   max-width: 400px
 }
 
-.titulo-patrimonio {
+.property-title {
   padding-left: 70px;
   font-size: 1.25em;
 }
@@ -892,7 +892,7 @@ body>header ul li {
     width: 125px;
     height: auto;
   }
-  .titulo-patrimonio {
+  .property-title {
     font-size: 0.8em;
   }
   .h1, h1 {
@@ -2328,7 +2328,7 @@ video {
   body>header {
     background: #000;
   }
-  .titulo-patrimonio {
+  .property-title {
     padding-left: 35px;
   }
   .unc-footer {
