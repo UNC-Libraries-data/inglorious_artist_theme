@@ -2166,7 +2166,7 @@ video {
   z-index: 1000;
 }
 
-.titulo-media {
+.media-title {
   background: rgba(92, 77, 81, 0.596);
   color: white;
   font-size: 85%;
@@ -2174,7 +2174,7 @@ video {
   text-align: center !important;
 }
 
-.titulo-media a, .titulo-media a:visited {
+.media-title a, .media-title a:visited {
   color: white !important;
 }
 
