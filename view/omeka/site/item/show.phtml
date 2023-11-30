@@ -37,8 +37,8 @@ foreach ($item->media() as $media) {
     }
 </style>
 
-<div class="contenido-ficha">
-    <div class="ficha-columna-1">
+<div class="content-sheet">
+    <div class="tab-column-1">
         <?php if (count($lightMedia) > 0): ?>
             <ol id="itemfiles" class="media-list">
                 <?php foreach ($lightMedia as $media): ?>
@@ -48,7 +48,7 @@ foreach ($item->media() as $media) {
                         data-tweet-text="<?php echo $site->title(); ?>: «<?php echo $media->displayTitle(); ?>» por"
                         title="<?php echo $media->displayTitle(); ?>" alt="<?php echo $media->displayTitle(); ?>">
                         <?php echo $media->render(); ?>
-                        <div class="titulo-imagen">
+                        <div class="title-image">
                             <?php echo $media->displayTitle(); ?>
                         </div>
                     </li>
@@ -78,19 +78,19 @@ foreach ($item->media() as $media) {
 
     </div>
 
-    <div class="ficha-columna-2">
-        <p class="titulo-catalogo-ficha">
+    <div class="tab-column-2">
+        <p class="title-catalog-sheet">
             <?php echo ucfirst($item->resourceTemplate()->label()); ?>
         </p>
         <!--  Creates item title for the page -->
-        <div class="titulo-ficha">
+        <div class="title-file">
             <?php echo $this->pageTitle($item->displayTitle()); ?>
         </div>
          <!-- Writes item creator's name underneath item title-->
         <?php
         $autoria = $item->value('dcterms:creator', ['all' => true]);
         foreach ($autoria as $value) {
-            echo '<h2 class="autor-ficha">' . $value->asHtml() . '</h2>';
+            echo '<h2 class="author-file">' . $value->asHtml() . '</h2>';
         }
         ?>
         <div class="property">
@@ -159,7 +159,7 @@ foreach ($item->media() as $media) {
 
         <?php $itemSets = $item->itemSets(); ?>
         <?php if (count($itemSets) > 0): ?>
-            <h4 class="etiqueta-fichas">
+            <h4 class="label-tokens">
                 <?php echo "Sets"; ?>
             </h4>
             <?php foreach ($itemSets as $itemSet): ?>

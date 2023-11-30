@@ -20,23 +20,23 @@ $sortHeadings = [
 ?>
 
 <?php if ($itemSetShow): ?>
-    <div class="contenido-conjunto">
-        <div class="conjunto-columna-1">
+    <div class="set-content">
+        <div class="column-set-1">
             <?php echo $this->pageTitle($itemSet->displayTitle(), 1); ?>
             <?php
             $autorias = $itemSet->value('dcterms:creator', ['all' => true]);
             foreach ($autorias as $value) {
-                echo '<h2 class="autor-ficha">' . $value->asHtml() . '</h2>';
+                echo '<h2 class="author-file">' . $value->asHtml() . '</h2>';
             }
             ?>
-            <h3 class="tipo-recurso titulo-catalogo-ficha">
+            <h3 class="resource-type title-catalog-file">
                 <?php echo ucfirst($itemSet->resourceTemplate()->label()); ?>
             </h3>
             <div class="metadata">
                 <?php echo $itemSet->displayValues(); ?>
             </div>
         </div>
-        <div class="conjunto-columna-2">
+        <div class="column-set-2">
             <div class="item-set-items">
             <?php else: ?>
                 <div class="consultar-catalogo">

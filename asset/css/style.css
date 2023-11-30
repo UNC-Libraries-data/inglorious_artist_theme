@@ -200,12 +200,12 @@ h1, h2, h3 {
   font-weight: 400
 }
 
-.contenido-ficha .titulo-ficha h1, .contenido-conjunto h1 {
+.content-sheet .title-file h1, .set-content h1 {
   line-height: normal;
   margin-bottom: 1.2rem;
 }
 
-.contenido-ficha h2.autor-ficha, .contenido-conjunto h2 {
+.content-sheet h2.author-file, .set-content h2 {
   margin-top: 0;
 }
 
@@ -277,23 +277,23 @@ p li>a:active, p li>a:hover, p>a:active, p>a:hover {
   color: var(--primary)
 }
 
-.contenido-ficha .lSPager {
+.content-sheet .lSPager {
   margin-bottom: 15px !important;
 }
 
-.contenido-ficha .lSPager ol {
+.content-sheet .lSPager ol {
   list-style: none;
   counter-reset: item;
 }
 
-.contenido-ficha .lSPager li {
+.content-sheet .lSPager li {
   counter-increment: item;
   font-size: 85%;
   padding: 0 !important;
   margin-right: 10px;
 }
 
-.contenido-ficha .lSPager li a {
+.content-sheet .lSPager li a {
   display: none !important;
 }
 
@@ -301,7 +301,7 @@ p li>a:active, p li>a:hover, p>a:active, p>a:hover {
   background-image: none;
 }
 
-.contenido-ficha .lSPager li:before {
+.content-sheet .lSPager li:before {
   content: counter(item);
   border: solid 0.5px #525252;
   color: #525252;
@@ -310,7 +310,7 @@ p li>a:active, p li>a:hover, p>a:active, p>a:hover {
   display: inline-block;
 }
 
-.contenido-ficha .lSPager li.active:before {
+.content-sheet .lSPager li.active:before {
   border: solid 1px black;
   background-color: #eeeeee;
   font-weight: bold;
@@ -521,13 +521,13 @@ main>div>.browse-controls {
   }
 }
 
-main>div>.consultar-catalogo {
+main>div>.consult-catalog {
   padding-left: 0;
   padding-right: 0
 }
 
 @media only screen and (min-width:56.25em) {
-  main>div>.consultar-catalogo {
+  main>div>.consult-catalog {
     padding-left: 0;
     padding-right: 0;
     margin-left: auto!important;
@@ -537,18 +537,18 @@ main>div>.consultar-catalogo {
 }
 
 @media only screen and (min-width:56.25em) {
-  main>div>.consultar-catalogo {
+  main>div>.consult-catalog {
     max-width: calc(800px + (10.67529rem * 2) - 5.06665rem)
   }
 }
 
-main>div>.consultar-catalogo>div {
+main>div>.consult-catalog>div {
   padding-left: 0;
   padding-right: 0;
 }
 
 @media only screen and (min-width:56.25em) {
-  main>div>.consultar-catalogo>div {
+  main>div>.consult-catalog>div {
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
@@ -904,7 +904,7 @@ body>header ul li {
   .h3, h3 {
     font-size: 1.2rem;
   }
-  .titulo-catalogo-ficha {
+  .title-catalog-sheet {
     font-size: 1.1em;
   }
   .h4, h4 {
@@ -973,11 +973,11 @@ body>header ul li {
   padding-right: 1.425rem
 }
 
-.consultar-catalogo>p {
+.consult-catalog>p {
   font-style: italic
 }
 
-.consultar-catalogo h1, h1#busqueda-avanzada, .reference h2, .explore-the-archive h1, .reference-block>h3:nth-child(1) {
+.consult-catalog h1, h1#busqueda-avanzada, .reference h2, .explore-the-archive h1, .reference-block>h3:nth-child(1) {
   font-family: 'Montserrat', sans-serif;
   font-size: 3rem;
   margin-top: 9rem;
@@ -1005,16 +1005,16 @@ body>header ul li {
   }
 }
 
-.consultar-catalogo h1 {
+.consult-catalog h1 {
   text-align: center;
 }
 
-.consultar-catalogo input {
+.consult-catalog input {
   background-color: white !important;
 }
 
 @media only screen and (max-width:900px) {
-  main>div>.consultar-catalogo>h1 {
+  main>div>.consult-catalog>h1 {
     margin-top: 40px;
   }
   .pagination {
@@ -1022,14 +1022,14 @@ body>header ul li {
   }
 }
 
-.consultar-catalogo h3 {
+.consult-catalog h3 {
   font-size: 1.4rem;
   color: #525252;
   text-align: center;
   margin: 15px 0 0;
 }
 
-.consultar-catalogo img {
+.consult-catalog img {
   width: 8.00648rem;
   float: left;
   margin: 4.50367rem
@@ -1249,7 +1249,7 @@ body>header ul li {
 }
 
 @media only screen and (max-width:900px) {
-.card-view, .resource-list-item-set, .contenido-ficha, .contenido-conjunto, .consultar-catalogo, #advanced-search {
+.card-view, .resource-list-item-set, .content-sheet, .set-content, .consult-catalog, #advanced-search {
     display: block;
     padding: 0 !important;
   }
@@ -1266,7 +1266,7 @@ body>header ul li {
     margin-left: 2.5%;
     margin-right: 2.5%;
   }
-  .portada-omeka-fondo, #body-explorar {
+  .cover-omeka-background, #body-explorar {
     margin-left: -2.5%;
     margin-right: -2.5%;
   }
@@ -1279,13 +1279,13 @@ body>header ul li {
   #content-stack {
     padding-bottom: 25px;
   }
-  .portada-omeka-fondo {
+  .cover-omeka-background {
     margin-bottom: -25px;
   }
   .browse-controls {
     margin-top: 0
   }
-  .consultar-catalogo h1, h1#busqueda-avanzada, .reference h2, .explore-the-archive h1, .reference-block>h3:nth-child(1) {
+  .consult-catalog h1, h1#busqueda-avanzada, .reference h2, .explore-the-archive h1, .reference-block>h3:nth-child(1) {
     margin-top: 1em;
   }
 }
@@ -1366,7 +1366,7 @@ body>header ul li {
   font-size: 1.4rem
 }
 
-.dark .resource-list .item>h4>a, .dark .resource-list-item-set .item>h4>a, .dark .contenido-ficha .property h4 {
+.dark .resource-list .item>h4>a, .dark .resource-list-item-set .item>h4>a, .dark .content-sheet .property h4 {
   color: var(--primary);
 }
 
@@ -1386,13 +1386,13 @@ body>header ul li {
   color: white;
 }
 
-main>div>.browse-controls, main>div>.consultar-catalogo, main>div>.resource-list, main>div>nav.pagination {
+main>div>.browse-controls, main>div>.consult-catalog, main>div>.resource-list, main>div>nav.pagination {
   padding-left: 0;
   padding-right: 0
 }
 
 @media only screen and (min-width:56.25em) {
-  main>div>.browse-controls, main>div>.consultar-catalogo, main>div>.resource-list, main>div>nav.pagination {
+  main>div>.browse-controls, main>div>.consult-catalog, main>div>.resource-list, main>div>nav.pagination {
     padding-left: 0;
     padding-right: 0;
     margin-left: auto!important;
@@ -1939,102 +1939,102 @@ li ul {
   font-family: Montserrat, sans-serif !important;
 }
 
-.ficha-columna-1, .conjunto-columna-1 {
+.tab-column-1, .column-set-1 {
   grid-column-start: 1;
   border-right: 1px solid gray;
 }
 
-.conjunto-columna-1 {
+.column-set-1 {
   padding-right: 35px;
 }
-.ficha-columna-1 img {
+.tab-column-1 img {
   position: relative;
 }
 
-.ficha-columna-2 {
+.tab-column-2 {
   grid-column-start: 2;
 }
 
 @media only screen and (min-width: 900px) {
-  .ficha-columna-2 {
+  .tab-column-2 {
     margin: 0 50px 0 15px;
   }
 }
 
-.conjunto-columna-2 {
+.column-set-2 {
   grid-column-start: 2;
 }
 
 @media only screen and (min-width: 900px) {
-  .contenido-ficha, .contenido-conjunto {
+  .content-sheet, .set-content {
     display: grid;
     grid-column-gap: 50px;
   }
-  .contenido-ficha {
+  .content-sheet {
     grid-template-columns: 0.85fr 1.15fr;
   }
-  .contenido-conjunto {
+  .set-content {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.contenido-conjunto h1, .contenido-conjunto h3, .contenido-conjunto .pagination {
+.set-content h1, .set-content h3, .set-content .pagination {
   margin-top: 0;
 }
 
-.contenido-conjunto .resource-list {
+.set-content .resource-list {
   margin-top: 10px;
 }
 
-.contenido-conjunto .item h4>a {
+.set-content .item h4>a {
   font-size: 1.1rem;
 }
 
-.contenido-conjunto .item h4 {
+.set-content .item h4 {
   margin-bottom: .4rem;
   line-height: 1.2;
 }
 
-.contenido-conjunto .pagination .row-count {
+.set-content .pagination .row-count {
   margin: 0;
   font-size: 1em;
 }
 
-.contenido-conjunto .pagination form {
+.set-content .pagination form {
   font-size: 0.9em;
 }
 
-.contenido-conjunto .pagination form input[type="text"] {
+.set-content .pagination form input[type="text"] {
   width: 2em;
 }
 
-.contenido-conjunto .explore-right, .contenido-conjunto .explore-left {
+.set-content .explore-right, .set-content .explore-left {
   width: 3rem;
   height: 3rem;
   margin: 1rem 0 1.425rem 1.425rem
 }
 
-.contenido-conjunto .browse-controls {
+.set-content .browse-controls {
   margin-top: 20px;
 }
 
 @media only screen and (max-width: 889px) {
-  .contenido-ficha, .contenido-conjunto {
+  .content-sheet, .set-content {
     display: block;
   }
-  .ficha-columna-1, .conjunto-columna-1 {
+  .tab-column-1, .column-set-1 {
     border-right: none !important;
   }
-  .contenido-conjunto h1 {
+  .set-content h1 {
     margin-top: 20px;
   }
 }
 
-.contenido-ficha {
+.content-sheet {
   padding: 75px 0 75px;
 }
 
-.contenido-ficha .property h4, .etiqueta-fichas, #item-linked h3 {
+.content-sheet .property h4, .label-tokens, #item-linked h3 {
   text-transform: uppercase;
   font-size: 0.9rem;
   color: #8B0000;
@@ -2059,7 +2059,7 @@ li ul {
 }
 
 @media only screen and (min-width: 56.25em) {
-  .media-list-wrapper>header, .media-list-wrapper>.contenido-ficha {
+  .media-list-wrapper>header, .media-list-wrapper>.content-sheet {
     margin: 1.9rem 2.53333rem;
   }
 }
@@ -2108,7 +2108,7 @@ video {
   }
 }
 
-.portada-omeka-fondo {
+.cover-omeka-background {
   background-image: var(--backgroundImage);
   background-position: center center;
   background-repeat: no-repeat;
@@ -2118,7 +2118,7 @@ video {
   overflow: auto;
 }
 
-.portada-omeka-caja {
+.cover-omeka-box {
   background: rgba(35, 31, 32, 0.596);
   margin: 8em 4em 5em !important;
   padding: 50px 40px;
@@ -2126,7 +2126,7 @@ video {
   justify-content: space-between
 }
 
-.portada-omeka-titulo {
+.cover-omeka-title {
   font-size: 2em;
   font-family: "Libre Baskerville", serif;
   flex: .35!important;
@@ -2136,18 +2136,18 @@ video {
 }
 
 @media only screen and (max-width:500px) {
-  .portada-omeka-caja {
+  .cover-omeka-box {
     padding: 25px 20px;
   }
-  .portada-omeka-titulo {
+  .cover-omeka-title {
     font-size: 1.5em;
   }
-  .portada-omeka-texto p {
+  .cover-omeka-text p {
     font-size: .9em;
   }
 }
 
-.titulo-catalogo-ficha {
+.title-catalog-sheet {
   display: inline-block;
   width: auto;
   margin-bottom: 0;
@@ -2159,7 +2159,7 @@ video {
   letter-spacing: 1px;
 }
 
-.titulo-imagen {
+.title-image {
   background: rgba(35, 31, 32, 0.596);
   color: white;
   font-size: 85%;
@@ -2186,11 +2186,11 @@ video {
   display: block;
 }
 
-.titulo-ficha h1 {
+.title-file h1 {
   color: #3f3f3f;
 }
 
-.portada-omeka-texto {
+.cover-omeka-text {
   border-left: #fff solid 1px;
   padding: 0 50px 0 100px
 }
@@ -2211,28 +2211,28 @@ video {
 }
 
 @media only screen and (max-width:1000px) {
-  .portada-omeka-caja {
+  .cover-omeka-box {
     margin: 10px !important;
     justify-content: left
   }
-  .portada-omeka-titulo {
+  .cover-omeka-title {
     text-align: left;
     padding: 0 0 20px;
   }
-  .portada-omeka-texto {
+  .cover-omeka-text {
     padding: 0;
     border-left: 0
   }
 }
 
-.fila {
+.row {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%
 }
 
-.columna {
+.column {
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
@@ -2240,7 +2240,7 @@ video {
 }
 
 @media only screen and (max-width:1000px) {
-  .fila {
+  .row {
     display: block
   }
 }
