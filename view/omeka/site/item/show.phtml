@@ -46,10 +46,10 @@ foreach ($item->media() as $media) {
                     <li data-src="<?php echo $source; ?>" data-thumb="<?php echo $escape($media->thumbnailUrl('medium')); ?>"
                         data-download-url="<?php echo $source; ?>" class="media resource"
                         data-tweet-text="<?php echo $site->title(); ?>: «<?php echo $media->displayTitle(); ?>» por"
-                        title="<?php echo $media->displayTitle(); ?>" alt="<?php echo $media->displayTitle(); ?>">
+                        title="<?php echo $item->value('dcterms:title'); ?>" alt="<?php echo $item->value('dcterms:title'); ?>">
                         <?php echo $media->render(); ?>
                         <div class="title-image">
-                            <?php echo $media->displayTitle(); ?>
+                            <?php echo $item->value('dcterms:abstract'); ?>
                         </div>
                     </li>
                 <?php endforeach; ?>
@@ -62,11 +62,11 @@ foreach ($item->media() as $media) {
                 <div class="values">
                     <?php foreach ($otherMedia as $media): ?>
                         <div class="value">
-                            <a href="<?php echo $media->originalUrl(); ?>" title="<?php echo $media->displayTitle(); ?>"
-                                alt="<?php echo $media->displayTitle(); ?>">
+                            <a href="<?php echo $media->originalUrl(); ?>" title="<?php echo $item->value('dcterms:title'); ?>"
+                                alt="<?php echo $item->value('dcterms:abstract'); ?>">
                                 <?php echo $this->thumbnail($media, 'large'); ?>
                             </a>
-                            <div class="titulo-media"><a href="<?php echo $media->originalUrl(); ?>">
+                            <div class="media-title"><a href="<?php echo $media->originalUrl(); ?>">
                                     <?php echo $media->displayTitle(); ?>
                                     <?php echo " (formato " . strtoupper($media->extension()) . ")"; ?>
                                 </a></div>

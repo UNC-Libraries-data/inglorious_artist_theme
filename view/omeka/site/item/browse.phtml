@@ -77,6 +77,8 @@ $sortHeadings = [
                                 echo $value->asHtml();
                             }
                             ?>
+                            <br>
+                            <?php echo $item->value('dcterms:abstract'); ?>
                         </div>
                     </li>
                 <?php endforeach; ?>
