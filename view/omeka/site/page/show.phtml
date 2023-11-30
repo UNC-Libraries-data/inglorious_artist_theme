@@ -35,7 +35,7 @@ if ($pageSlug == "home" || $pageSlug == 'index') {
 } else if( $pageSlug == "explore") {
     $siteTitle = "Explore" . $this->themeSetting("site_name");
     $landingText = $this->content;
-    echo $this->partial("partials/explore-page-block.phtml", ["title" => $siteTitle, "text" => $landingText]);
+    echo $this->partial("explore.phtml", ["title" => $siteTitle, "text" => $landingText]);
 } 
 else {
     echo $this->content;
