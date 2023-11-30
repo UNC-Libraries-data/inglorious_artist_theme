@@ -2448,7 +2448,7 @@ video {
   border-bottom: 1px solid #ddd;
   display: block;
   margin: 0;
-  box-shadow: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .list-view .item > a {
   width: 200px !important;
@@ -2463,4 +2463,12 @@ video {
 .viewToggle {
   border-left: 2px solid;
   padding-left: 0.5em;
+}
+.aboutme-body {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 92%;
+  margin-top: 8%;
 }

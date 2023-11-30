@@ -89,13 +89,13 @@ $pageClass = null;
     }
   }
 
-  $siteName = $this->themeSetting('site_name') ?: 'Patrimonio cultural de la Universidad de Jaén';
-  $siteUrl = $this->themeSetting('site_url') ?: $site->url();
+  $siteName = $this->themeSetting('site_name') ?: 'University of North Carolina at Chapel Hill';
+  $siteUrl = $site->url();
   $displayOption = $this->themeSetting('display_option') ?: 'both';
   ?>
   <div class="site-title identidad-unc">
     <?php if ($displayOption == 'logo' || $displayOption == 'both'): ?>
-      <a id='logo-stack' href="https://www.unc.edu" title="University of North Carolina">
+      <a id='logo-stack' href="<?php echo $siteUrl; ?>" title="University of North Carolina at Chapel Hill">
         <img src="<?php echo $displayedLogoUrl; ?>" alt="<?php echo $siteName; ?>">
       </a>
     <?php endif; ?>
