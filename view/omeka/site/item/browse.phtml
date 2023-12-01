@@ -43,7 +43,7 @@ $sortHeadings = [
                     <h1>Gallery</h1>
                     <div id="search">
                         <?php echo $this->partial('common/search-form'); ?>
-                        <div>    
+                        <div>
                             <?php echo $this->hyperlink($translate('Advanced Search'), $this->url('site/resource', ['controller' => 'item', 'action' => 'search'], ['query' => $query], true), ['class' => 'advanced-search']); ?>
                         </div>
                     </div>
@@ -97,18 +97,27 @@ $sortHeadings = [
 
         <!-- JavaScript to handle the view toggle -->
         <script>
-            document.getElementById('viewToggle').addEventListener('click', function () {
+            document.addEventListener('DOMContentLoaded', function () {
                 var container = document.querySelector('.resource-list');
-                if (this.getAttribute('data-view') === 'cards') {
-                    container.classList.remove('card-view');
-                    container.classList.add('list-view');
-                    this.setAttribute('data-view', 'lists');
-                    this.innerHTML = 'Switch to Card View';
-                } else {
-                    container.classList.remove('list-view');
-                    container.classList.add('card-view');
-                    this.setAttribute('data-view', 'cards');
-                    this.innerHTML = 'Switch to List View';
+                var viewToggle = document.getElementById('viewToggle');
+
+                // Helper function to switch views
+                function switchView(toCardView) {
+                    var viewClass = toCardView ? 'card-view' : 'list-view';
+                    container.className = 'resource-list ' + viewClass; // Reset and apply the appropriate class
+                    viewToggle.setAttribute('data-view', toCardView ? 'cards' : 'lists');
+                    viewToggle.innerHTML = toCardView ? 'Switch to List View' : 'Switch to Card View';
+                    localStorage.setItem('viewMode', toCardView ? 'cards' : 'lists');
                 }
+
+                // Initialize or toggle view
+                var savedView = localStorage.getItem('viewMode');
+                var isCardView = savedView === 'cards';
+                switchView(isCardView);
+
+                viewToggle.addEventListener('click', function () {
+                    isCardView = !isCardView; // Toggle the view mode
+                    switchView(isCardView);
+                });
             });
         </script>
