@@ -2109,7 +2109,7 @@ video {
 }
 
 .cover-omeka-background {
-  background-image: var(--backgroundImage);
+  background-image: url('/themes/inglorious_artist_theme/index/landing_background.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

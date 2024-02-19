@@ -75,7 +75,7 @@ ul li {
 ul li .explorsec {
   position: relative;
   z-index: 100;
-  color: #fff;
+  color: #000;
   text-align: center;
   padding: 50px 20px;
   -moz-box-sizing: border-box;
@@ -83,26 +83,35 @@ ul li .explorsec {
   box-sizing: border-box;
   display: inline-block;
   width: 100%;
-  background-position: top;
+  background-position: center;
+  background-size: cover;
+}
+
+ul li .explorsec .explorsecBox {
+  background-color: rgba(253, 150, 17, 0.8); /* temporary color */
+  width: 50vw;
+  margin: auto auto;
+  background-position: center;
 }
 
 ul li .explorsec h2, ul li .explorsec a, ul li .explorsec a:visited {
   font-family: "Libre Baskerville", serif;
-  text-shadow: 1px 1px 3px black;
-  font-size: 32px;
+  font-size: 34px;
   line-height: 50px;
   color: #fff;
+  padding-bottom: 1vh;
+  padding-top: 1vh;
   margin-bottom: 0;
 }
 
 ul li .explorsec p, ul li .explordescr a {
   font-family: "Montserrat", sans-serif;
-  text-shadow: 1px 1px 2px black;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 30px;
   color: #fff;
-  padding-bottom: 10px;
+  padding-bottom: 1vh;
   text-decoration: none;
+
 }
 
 .explordescr a:hover {
@@ -134,22 +143,22 @@ ul li .explorsec .explordescr {
   }
 }
 
-.rutas {
-  background-image: url("/themes/inglorious_artist_theme/index/e1.jpg");
+.ancienRegime {
+  background-image: url("/themes/inglorious_artist_theme/index/ancien_regime.jpg");
 }
 
-.autorias {
-  background-image: url("/themes/inglorious_artist_theme/index/e2.jpg");
+.empire {
+  background-image: url("/themes/inglorious_artist_theme/index/empire.jpg");
 }
 
-.series {
-  background-image: url("/themes/inglorious_artist_theme/index/e3.jpg");
+.julyMonarchy {
+  background-image: url("/themes/inglorious_artist_theme/index/july_monarchy.jpg");
 }
 
-.colecciones {
-  background-image: url("/themes/inglorious_artist_theme/index/e4.jpg");
+.restoration {
+  background-image: url("/themes/inglorious_artist_theme/index/bourbon_restoration.jpg");
 }
 
-.etiquetas {
-  background-image: url("/themes/inglorious_artist_theme/index/e5.jpg");
+.revDirectoryConsulate {
+  background-image: url("/themes/inglorious_artist_theme/index/rev_directory_consulate.jpg");
 }

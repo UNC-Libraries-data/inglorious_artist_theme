@@ -29,7 +29,7 @@ if ($activePage):
 $pageSlug = $page->slug();
 
 if ($pageSlug == "home" || $pageSlug == 'index') {
-    $siteTitle = $this->themeSetting('site_name');
+    $siteTitle = $this->themeSetting('landing_page_name');
     $landingText = $this->themeSetting('landing_page_text');
     echo $this->partial("partials/landing-page-block.phtml", ["title" => $siteTitle, "text" => $landingText]);
 } else if( $pageSlug == "explore") {
