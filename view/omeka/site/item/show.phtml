@@ -88,26 +88,58 @@ foreach ($item->media() as $media) {
         </div>
          <!-- Writes item creator's name underneath item title-->
         <?php
-        $autoria = $item->value('dcterms:creator', ['all' => true]);
-        foreach ($autoria as $value) {
+        $author = $item->value('dcterms:creator', ['all' => true]);
+        foreach ($author as $value) {
             echo '<h2 class="author-file">' . $value->asHtml() . '</h2>';
         }
         ?>
         <div class="property">
-            <?php echo $item->displayValues(); ?>
+            <!-- <?php echo $item->displayValues(); ?> -->
+            <h4 class="property dt">Creator</h4>
+            <p><?php echo $item->value('dcterms:creator') ?></p>
+
+            <h4 class="property dt">Abstract</h4>
+            <p><?php echo $item->value('dcterms:abstract') ?></p>
+
+            <h4 class="property dt">Description</h4>
+            <p><?php echo $item->value('dcterms:description') ?></p>
+
+            <h4 class="property dt">Subjects</h4>
+            <?php 
+            $subjects = $item->value('dcterms:subject', ['all'=> true]);
+            foreach ($subjects as $subject) {
+                echo '<p>' . $subject->asHTMl() . '</p>';
+            }
+            ?>
+
+            <h4 class="property dt">Tags</h4>
+            <?php 
+            $tags = $item->value('curation:tag', ['all'=> true]);
+            foreach ($tags as $tag) {
+                echo '<p>' . $tag->asHTMl() . '</p>';
+            }
+            ?>
+
+            <h4 class="property dt">Rights</h4>
+            <p><?php echo $item->value('dcterms:rights') ?></p>
+
+            <h4 class="property dt">Access Rights</h4>
+            <p><?php echo $item->value('dcterms:accessRights') ?></p>
+
+            <h4 class="property dt">Location</h4>
+            <p><?php echo $item->value('curation:location') ?></p>
+
+            <h4 class="property dt">Extent</h4>
+            <p><?php echo $item->value('dcterms:extent') ?></p>
+
+            <h4 class="property dt">Note</h4>
+            <p><?php echo $item->value('curation:note') ?></p>
+
+
         </div>
+
+
         <script>
-            // selects all property titles and sets them as h4 titles
-            document.querySelectorAll('.property dt').forEach(dt => {
-                // Create a new h4 element
-                let h4 = document.createElement('h4');
-
-                // Copy the contents of the dt into the h4
-                h4.innerHTML = dt.innerHTML;
-
-                // Replace the dt with the h4 in the DOM
-                dt.parentNode.replaceChild(h4, dt);
-            });
 
             // function to create links -- should be moved to helpers
             let create_links = (node, tags, tag_links) => {
@@ -142,7 +174,7 @@ foreach ($item->media() as $media) {
                 } else if (feature === 'Tag') {
                     txt.split(';').forEach(t => {
                     tags.push(t.trim())
-                    tag_links.push(`http://localhost:88/s/test/item?property%5B0%5D%5Bjoiner%5D=and&property%5B0%5D%5Bproperty%5D=194&property%5B0%5D%5Btype%5D=in&property%5B0%5D%5Btext%5D=${t.trim()}&submit=Search`)
+                    tag_links.push()
                 })
                 create_links(e, tags, tag_links);
                 }
